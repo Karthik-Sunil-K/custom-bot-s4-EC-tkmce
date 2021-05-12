@@ -1,12 +1,12 @@
 //testing bot start---------------------
-// const { Telegraf } = require('telegraf')
-// const bot = new Telegraf('1649432599:AAGbi0TCoX3hXjPm8aw2Js2wr3bOiDZdfSw')
+const { Telegraf } = require('telegraf')
+const bot = new Telegraf('1649432599:AAGbi0TCoX3hXjPm8aw2Js2wr3bOiDZdfSw')
 //testing bot end -----------------------
 
 
 //deploy bot start-----------------------
-const { Composer } = require('micro-bot')
-const bot = new Composer
+// const { Composer } = require('micro-bot')
+// const bot = new Composer
 //deploy bot end-------------------------
 
 
@@ -28,7 +28,8 @@ bot.hears('Hi',(ctx) =>{
                 [{text: "SEMESTER 6",callback_data:"ecs5"},{text: "SEMESTER 8",callback_data:"ecs7"}],
                 [{text:"Admin Pannel",callback_data:"ap"}],
             ]
-        }
+        },
+        parse_mode: 'Markdown'
     })
 })
 bot.hears('Hii',(ctx) =>{
@@ -40,7 +41,7 @@ bot.hears('Hii',(ctx) =>{
                 [{text: "SEMESTER 6",callback_data:"ecs5"},{text: "SEMESTER 8",callback_data:"ecs7"}],
                 [{text:"Admin Pannel",callback_data:"ap"}],
             ]
-        }
+        },parse_mode: 'Markdown'
     })
 })
 bot.hears('hi',(ctx) =>{
@@ -52,7 +53,8 @@ bot.hears('hi',(ctx) =>{
                 [{text: "SEMESTER 6",callback_data:"ecs5"},{text: "SEMESTER 8",callback_data:"ecs7"}],
                 [{text:"Admin Pannel",callback_data:"ap"}],
             ]
-        }
+        },
+        parse_mode: 'Markdown'
     })
 })
 bot.hears('hii',(ctx) =>{
@@ -65,7 +67,8 @@ bot.hears('hii',(ctx) =>{
                 [{text: "SEMESTER 6",callback_data:"ecs5"},{text: "SEMESTER 8",callback_data:"ecs7"}],
                 [{text:"Admin Pannel",callback_data:"ap"}],
             ]
-        }
+        },
+        parse_mode: 'Markdown'
         
     })
 })
@@ -170,7 +173,7 @@ bot.action('ecs7',(ctx) =>{
 //S4
 bot.action('ecs3',(ctx) =>{
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id,'ECE-Select your Subject', 
+    ctx.telegram.sendMessage(ctx.chat.id,'Select your Subject', 
     { 
         reply_markup:{
             inline_keyboard:[
@@ -323,7 +326,22 @@ bot.command('SETXT1', (ctx) => {
 //MAT-----------------------------------------------
 
 bot.action('ecmat',(ctx) =>{
-    ctx.telegram.sendMessage(ctx.chat.id,'Maths materials Will be available soon!!!!!!\n\n\n\n\nGot bug!!! /ContactAdmin')     
+    ctx.telegram.sendMessage(ctx.chat.id,'Maths Materials\n\n/MOD1_P1\n\n/MOD1_P2\nVIDEOS\n1. Discrete probability distbribution\nhttps://youtu.be/L-pMJg3kULM\n\n2. Cumulative Distribution, expectation and variance\nhttps://youtu.be/Ev5U536kHxw')     
+}
+)
+bot.command('MOD1_P1', (ctx) => {
+    ctx.telegram.sendChatAction(ctx.chat.id, 'upload_file',)
+    ctx.telegram.sendDocument(ctx.chat.id,
+        'BQACAgUAAxkBAANsYJtqjTTPPBoSwnCWmO5O4FqxocoAAnoCAALZ9NlUuM1w6QdNQRAfBA',
+        {"reply_to_message_id":ctx.message.message_id}
+    )
+})
+bot.command('MOD1_P2', (ctx) => {
+    ctx.telegram.sendChatAction(ctx.chat.id, 'upload_file',)
+    ctx.telegram.sendDocument(ctx.chat.id,
+        'BQACAgUAAxkBAANtYJtslg65Dz-ZtfaSaBMaCP3NfkoAAnsCAALZ9NlUo4F8QCP_qAwfBA',
+        {"reply_to_message_id":ctx.message.message_id}
+    )
 })
 //END OF MAT---------------------------------------
 
@@ -354,9 +372,9 @@ bot.on('document',(ctx)=>{
 })
 
 //bot test----
-// bot.launch()
+bot.launch()
 //end test----
 
 //bot deploy------------
-module.exports = bot
+//module.exports = bot
 //deploy end------------
