@@ -1,12 +1,12 @@
 //testing bot start---------------------
-const { Telegraf } = require('telegraf')
-const bot = new Telegraf('1649432599:AAGbi0TCoX3hXjPm8aw2Js2wr3bOiDZdfSw')
+// const { Telegraf } = require('telegraf')
+// const bot = new Telegraf('1649432599:AAGbi0TCoX3hXjPm8aw2Js2wr3bOiDZdfSw')
 //testing bot end -----------------------
 
 
 //deploy bot start-----------------------
-// const { Composer } = require('micro-bot')
-// const bot = new Composer
+const { Composer } = require('micro-bot')
+const bot = new Composer
 //deploy bot end-------------------------
 
 
@@ -372,9 +372,9 @@ bot.on('document',(ctx)=>{
 })
 
 //bot test----
-bot.launch()
+// bot.launch()
 //end test----
 
 //bot deploy------------
-//module.exports = bot
+module.exports = bot
 //deploy end------------
